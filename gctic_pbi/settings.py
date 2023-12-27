@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',
+    'django_extensions',
 ]
 
 AUTH_USER_MODEL = 'pbi.CustomUser'
@@ -117,9 +118,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sig_gctic',
-        'USER': 'postgres',
-        'PASSWORD': 'zxcvqwer159A-',
-        'HOST': '127.0.0.1',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '192.168.18.195',
         'PORT': '5432',
     }
 }

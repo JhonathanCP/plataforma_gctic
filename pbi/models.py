@@ -2,6 +2,8 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
+from django.contrib.auth.models import Permission, Group
+
 
 class CustomUser(AbstractUser):
     # Agrega tus campos personalizados aquí
@@ -59,3 +61,13 @@ class Reporte(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+class PermisoGrupo(models.Model):
+    usuario = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    grupo = models.ForeignKey('pbi.Grupo', on_delete=models.CASCADE)
+    # Otros campos específicos del permiso para grupos
+
+class PermisoReporte(models.Model):
+    usuario = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    reporte = models.ForeignKey('pbi.Reporte', on_delete=models.CASCADE)
+    # Otros campos específicos del permiso para reportes
