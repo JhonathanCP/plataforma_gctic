@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,10 +73,18 @@ JWT_AUTH = {
     'JWT_SECRET_KEY': 'your-secret-key',  # Asegúrate de usar una clave secreta segura
     'JWT_ALGORITHM': 'HS256',
     'JWT_ALLOW_REFRESH': True,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),  # Expira en 1 hora
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=7200),  # Expira en 1 hora
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),  # Puede refrescar durante 7 días
 }
 
+SIMPLE_JWT = {
+    'USER_ID_FIELD': 'username',  # Esto configura el campo que se utilizará como identificador de usuario en el token
+    'USER_ID_CLAIM': 'username',  # Esto configura el nombre del campo en el token que contendrá el identificador de usuario
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=6),  # Establece el tiempo de expiración del token de acceso a 6 horas
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Establece el tiempo de expiración del token de actualización a 1 día
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),  # Establece el tiempo durante el cual un token puede ser actualizado automáticamente a 1 día
+    'SLIDING_TOKEN_REFRESH_LIFETIME_LIFETIME': timedelta(days=14),  # Establece el tiempo máximo durante el cual se puede actualizar un token automáticamente a 14 días
+}
 
 CORS_ALLOW_ALL_ORIGINS = True  # Permitir solicitudes desde cualquier origen
 

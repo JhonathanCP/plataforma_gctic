@@ -3,8 +3,9 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .models import CustomUser, Solicitud, Grupo, Reporte, PermisoGrupo, PermisoReporte
-from .serializers import CustomUserSerializer, SolicitudSerializer, GrupoSerializer, ReporteSerializer, PermisoGrupoSerializer, PermisoReporteSerializer, AsignarPermisoGrupoSerializer, AsignarPermisoReporteSerializer
+from .serializers import CustomUserSerializer, SolicitudSerializer, GrupoSerializer, ReporteSerializer, PermisoGrupoSerializer, PermisoReporteSerializer, AsignarPermisoGrupoSerializer, AsignarPermisoReporteSerializer, QuitarPermisoGrupoSerializer, QuitarPermisoReporteSerializer
 from django.forms.models import model_to_dict
+from django.shortcuts import get_object_or_404
 
 class CustomUserListCreateView(generics.ListCreateAPIView):
     queryset = CustomUser.objects.all()
@@ -140,3 +141,106 @@ class AsignarPermisoReporteView(generics.CreateAPIView):
         PermisoReporte.objects.create(usuario_id=usuario_id, reporte_id=reporte_id)
 
         return Response({"detail": "Permiso de reporte asignado correctamente"}, status=status.HTTP_201_CREATED)
+
+class QuitarPermisoGrupoView(generics.CreateAPIView):
+    serializer_class = QuitarPermisoGrupoSerializer
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # Verificar si el usuario autenticado es un superusuario
+        if not request.user.is_superuser:
+            return Response({"detail": "Solo los superusuarios pueden quitar permisos a otros usuarios"}, status=status.HTTP_403_FORBIDDEN)
+
+        usuario_id = serializer.validated_data['usuario_id']
+        grupo_id = serializer.validated_data['grupo_id']
+
+        # Obtener el permiso de grupo y eliminarlo si existe
+        permiso_grupo = PermisoGrupo.objects.filter(usuario_id=usuario_id, grupo_id=grupo_id).first()
+        if permiso_grupo:
+            permiso_grupo.delete()
+
+        return Response({"detail": "Permiso de grupo quitado correctamente"}, status=status.HTTP_200_OK)
+
+class QuitarPermisoReporteView(generics.CreateAPIView):
+    serializer_class = QuitarPermisoReporteSerializer
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # Verificar si el usuario autenticado es un superusuario
+        if not request.user.is_superuser:
+            return Response({"detail": "Solo los superusuarios pueden quitar permisos a otros usuarios"}, status=status.HTTP_403_FORBIDDEN)
+
+        usuario_id = serializer.validated_data['usuario_id']
+        reporte_id = serializer.validated_data['reporte_id']
+
+        # Obtener el permiso de reporte y eliminarlo si existe
+        permiso_reporte = PermisoReporte.objects.filter(usuario_id=usuario_id, reporte_id=reporte_id).first()
+        if permiso_reporte:
+            permiso_reporte.delete()
+
+        return Response({"detail": "Permiso de reporte quitado correctamente"}, status=status.HTTP_200_OK)
+
+class AsignarTodosLosPermisosView(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def create(self, request, *args, **kwargs):
+        # Obtener el ID del usuario desde los parámetros de la solicitud
+        usuario_id = kwargs.get('usuario_id')
+
+        # Verificar si el usuario autenticado es un superusuario
+        if not request.user.is_superuser:
+            return Response({"detail": "Solo los superusuarios pueden asignar todos los permisos a otros usuarios"}, status=status.HTTP_403_FORBIDDEN)
+
+        # Obtener el usuario por ID
+        usuario = get_object_or_404(CustomUser, id=usuario_id)
+
+        # Obtener todos los grupos y reportes
+        todos_los_grupos = Grupo.objects.all()
+        todos_los_reportes = Reporte.objects.all()
+
+        # Asignar permisos de grupo al usuario
+        for grupo in todos_los_grupos:
+            PermisoGrupo.objects.create(usuario=usuario, grupo=grupo)
+
+        # Asignar permisos de reporte al usuario
+        for reporte in todos_los_reportes:
+            PermisoReporte.objects.create(usuario=usuario, reporte=reporte)
+
+        return Response({"detail": "Todos los permisos asignados correctamente"}, status=status.HTTP_201_CREATED)
+    
+class PermisosUsuarioView(generics.RetrieveAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+    def retrieve(self, request, *args, **kwargs):
+        user_id = self.kwargs['pk']
+
+        # Verificar si el usuario existe
+        try:
+            usuario = CustomUser.objects.get(pk=user_id)
+        except CustomUser.DoesNotExist:
+            return Response({"detail": "Usuario no encontrado"}, status=404)
+
+        # Verificar si el usuario autenticado es un superusuario
+        if not request.user.is_superuser:
+            return Response({"detail": "Solo los superusuarios pueden ver los permisos de un usuario"}, status=403)
+
+        # Obtener permisos de grupos y reportes para el usuario
+        permisos_grupos = PermisoGrupo.objects.filter(usuario=usuario)
+        permisos_reportes = PermisoReporte.objects.filter(usuario=usuario)
+
+        # Serializar los permisos
+        serializer_grupos = PermisoGrupoSerializer(permisos_grupos, many=True)
+        serializer_reportes = PermisoReporteSerializer(permisos_reportes, many=True)
+
+        return Response({
+            "permisos_grupos": serializer_grupos.data,
+            "permisos_reportes": serializer_reportes.data
+        }, status=200)

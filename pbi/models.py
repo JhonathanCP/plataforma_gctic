@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
     telefono_contacto = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(9999999999)])
     sede = models.CharField(max_length=100, null=True)
     area = models.CharField(max_length=100, null=True)    
-
+    
     # Otros campos personalizados que puedas necesitar
     def __str__(self):
         return self.username
@@ -57,7 +57,7 @@ class Reporte(models.Model):
     descripcion = models.TextField(blank=True, null=True)
     activo = models.BooleanField(default=True)
     link = models.URLField(blank=True, null=True, max_length=400)
-    grupo = models.ForeignKey('Grupo', on_delete=models.CASCADE, related_name='reportes')
+    grupo = models.ForeignKey('Grupo', on_delete=models.CASCADE, related_name='reportes', null=True)
 
     def __str__(self):
         return self.nombre

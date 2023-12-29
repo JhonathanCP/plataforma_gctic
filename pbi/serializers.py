@@ -33,9 +33,14 @@ class SolicitudSerializer(serializers.ModelSerializer):
         return data
 
 class ReporteSerializer(serializers.ModelSerializer):
+    grupo = serializers.SerializerMethodField()
     class Meta:
         model = Reporte
-        fields = ['id', 'nombre', 'fecha_creacion', 'descripcion', 'activo', 'link']
+        fields = ['id', 'nombre', 'fecha_creacion', 'descripcion', 'activo', 'link', 'grupo']
+            # Método para obtener la información del grupo en lugar de un id
+    def get_grupo(self, reporte):
+        grupo = reporte.grupo
+        return {'id': grupo.id, 'nombre': grupo.nombre}
 
 class GrupoSerializer(serializers.ModelSerializer):
     reportes = ReporteSerializer(many=True, read_only=True)
@@ -60,19 +65,33 @@ class GrupoSerializer(serializers.ModelSerializer):
         return representation
 
 class PermisoGrupoSerializer(serializers.ModelSerializer):
+    usuario = serializers.ReadOnlyField(source='usuario.username')
+    grupo = serializers.StringRelatedField(source='grupo.nombre')
+
     class Meta:
         model = PermisoGrupo
-        fields = '__all__'
+        fields = ['id', 'usuario', 'grupo']
 
 class PermisoReporteSerializer(serializers.ModelSerializer):
+    usuario = serializers.ReadOnlyField(source='usuario.username')
+    reporte = serializers.StringRelatedField(source='reporte.nombre')
+
     class Meta:
         model = PermisoReporte
-        fields = '__all__'
+        fields = ['id', 'usuario', 'reporte']
 
 class AsignarPermisoGrupoSerializer(serializers.Serializer):
     usuario_id = serializers.IntegerField()
     grupo_id = serializers.IntegerField()
 
 class AsignarPermisoReporteSerializer(serializers.Serializer):
+    usuario_id = serializers.IntegerField()
+    reporte_id = serializers.IntegerField()
+
+class QuitarPermisoGrupoSerializer(serializers.Serializer):
+    usuario_id = serializers.IntegerField()
+    grupo_id = serializers.IntegerField()
+
+class QuitarPermisoReporteSerializer(serializers.Serializer):
     usuario_id = serializers.IntegerField()
     reporte_id = serializers.IntegerField()
