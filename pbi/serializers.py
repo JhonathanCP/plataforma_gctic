@@ -33,15 +33,17 @@ class SolicitudSerializer(serializers.ModelSerializer):
         return data
 
 class ReporteSerializer(serializers.ModelSerializer):
-    grupo = serializers.SerializerMethodField()
+    grupo_id = serializers.SerializerMethodField(read_only=True)
+    grupo_nombre = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Reporte
-        fields = ['id', 'nombre', 'fecha_creacion', 'descripcion', 'activo', 'link', 'grupo']
-            # Método para obtener la información del grupo en lugar de un id
-    def get_grupo(self, reporte):
-        grupo = reporte.grupo
-        return {'id': grupo.id, 'nombre': grupo.nombre}
+        fields = ['id', 'nombre', 'fecha_creacion', 'descripcion', 'activo', 'link', 'grupo', 'grupo_id', 'grupo_nombre']
+    def get_grupo_id(self, reporte):
+        return reporte.grupo.id if reporte.grupo else None
 
+    def get_grupo_nombre(self, reporte):
+        return reporte.grupo.nombre if reporte.grupo else None
+    
 class GrupoSerializer(serializers.ModelSerializer):
     reportes = ReporteSerializer(many=True, read_only=True)
 
@@ -56,8 +58,10 @@ class GrupoSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
 
         # Filtrar los reportes según los permisos del usuario
-        reportes = representation['reportes']
-        filtered_reportes = [reporte for reporte in reportes if user.has_perm('ver_reporte', reporte['id'])]
+        reportes_permisos = PermisoReporte.objects.filter(usuario=user, reporte__grupo=instance)
+        filtered_reportes = [
+            ReporteSerializer(permiso.reporte).data for permiso in reportes_permisos
+        ]
 
         # Actualizar la representación con los reportes filtrados
         representation['reportes'] = filtered_reportes
@@ -66,19 +70,28 @@ class GrupoSerializer(serializers.ModelSerializer):
 
 class PermisoGrupoSerializer(serializers.ModelSerializer):
     usuario = serializers.ReadOnlyField(source='usuario.username')
-    grupo = serializers.StringRelatedField(source='grupo.nombre')
+    grupo = serializers.SerializerMethodField()
 
     class Meta:
         model = PermisoGrupo
         fields = ['id', 'usuario', 'grupo']
 
+    def get_grupo(self, permiso_grupo):
+        grupo = permiso_grupo.grupo
+        return {'id': grupo.id, 'nombre': grupo.nombre}
+
 class PermisoReporteSerializer(serializers.ModelSerializer):
     usuario = serializers.ReadOnlyField(source='usuario.username')
-    reporte = serializers.StringRelatedField(source='reporte.nombre')
+    reporte = serializers.SerializerMethodField()
 
     class Meta:
         model = PermisoReporte
         fields = ['id', 'usuario', 'reporte']
+
+    def get_reporte(self, permiso_reporte):
+        reporte = permiso_reporte.reporte
+        return {'id': reporte.id, 'nombre': reporte.nombre}
+
 
 class AsignarPermisoGrupoSerializer(serializers.Serializer):
     usuario_id = serializers.IntegerField()

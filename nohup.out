@@ -1,0 +1,205 @@
+  ____________       _____________
+ ____    |__( )_________  __/__  /________      __
+____  /| |_  /__  ___/_  /_ __  /_  __ \_ | /| / /
+___  ___ |  / _  /   _  __/ _  / / /_/ /_ |/ |/ /
+ _/_/  |_/_/  /_/    /_/    /_/  \____/____/|__/
+[[34m2023-12-29T16:51:06.146-0500[0m] {[34mexecutor_loader.py:[0m117} INFO[0m - Loaded executor: SequentialExecutor[0m
+[2023-12-29 16:51:06 -0500] [1201195] [INFO] Starting gunicorn 21.2.0
+[2023-12-29 16:51:06 -0500] [1201195] [ERROR] Connection in use: ('::', 8793)
+[2023-12-29 16:51:06 -0500] [1201195] [ERROR] Retrying in 1 second.
+[[34m2023-12-29T16:51:06.178-0500[0m] {[34mscheduler_job_runner.py:[0m797} INFO[0m - Starting the scheduler[0m
+[[34m2023-12-29T16:51:06.179-0500[0m] {[34mscheduler_job_runner.py:[0m804} INFO[0m - Processing each file at most -1 times[0m
+[[34m2023-12-29T16:51:06.183-0500[0m] {[34mmanager.py:[0m166} INFO[0m - Launched DagFileProcessorManager with pid: 1201196[0m
+[[34m2023-12-29T16:51:06.184-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T16:51:06.188-0500[0m] {[34msettings.py:[0m61} INFO[0m - Configured default timezone Timezone('America/Lima')[0m
+[2023-12-29 16:51:07 -0500] [1201195] [ERROR] Connection in use: ('::', 8793)
+[2023-12-29 16:51:07 -0500] [1201195] [ERROR] Retrying in 1 second.
+[2023-12-29 16:51:08 -0500] [1201195] [ERROR] Connection in use: ('::', 8793)
+[2023-12-29 16:51:08 -0500] [1201195] [ERROR] Retrying in 1 second.
+[2023-12-29 16:51:09 -0500] [1201195] [ERROR] Connection in use: ('::', 8793)
+[2023-12-29 16:51:09 -0500] [1201195] [ERROR] Retrying in 1 second.
+[2023-12-29 16:51:10 -0500] [1201195] [ERROR] Connection in use: ('::', 8793)
+[2023-12-29 16:51:10 -0500] [1201195] [ERROR] Retrying in 1 second.
+[2023-12-29 16:51:11 -0500] [1201195] [ERROR] Can't connect to ('::', 8793)
+[[34m2023-12-29T16:56:06.246-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:01:06.282-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:06:06.314-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:11:06.347-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:13:10.121-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_MI_CONSULTA to 2023-12-29T13:00:00+00:00, run_after=2023-12-30T13:00:00+00:00[0m
+[[34m2023-12-29T17:13:10.150-0500[0m] {[34mscheduler_job_runner.py:[0m413} INFO[0m - 1 tasks up for execution:
+	<TaskInstance: actualizacion_MI_CONSULTA.act_tablas scheduled__2023-12-29T19:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T17:13:10.151-0500[0m] {[34mscheduler_job_runner.py:[0m476} INFO[0m - DAG actualizacion_MI_CONSULTA has 0/16 running and queued tasks[0m
+[[34m2023-12-29T17:13:10.151-0500[0m] {[34mscheduler_job_runner.py:[0m592} INFO[0m - Setting the following tasks to queued state:
+	<TaskInstance: actualizacion_MI_CONSULTA.act_tablas scheduled__2023-12-29T19:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T17:13:10.152-0500[0m] {[34mtaskinstance.py:[0m1441} WARNING[0m - cannot record scheduled_duration for task act_tablas because previous state change time has not been saved[0m
+[[34m2023-12-29T17:13:10.153-0500[0m] {[34mscheduler_job_runner.py:[0m635} INFO[0m - Sending TaskInstanceKey(dag_id='actualizacion_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T19:00:00+00:00', try_number=1, map_index=-1) to executor with priority 1 and queue default[0m
+[[34m2023-12-29T17:13:10.153-0500[0m] {[34mbase_executor.py:[0m146} INFO[0m - Adding to queue: ['airflow', 'tasks', 'run', 'actualizacion_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T19:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_MICONSULTA.py'][0m
+[[34m2023-12-29T17:13:10.154-0500[0m] {[34msequential_executor.py:[0m74} INFO[0m - Executing command: ['airflow', 'tasks', 'run', 'actualizacion_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T19:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_MICONSULTA.py'][0m
+[[34m2023-12-29T17:13:10.924-0500[0m] {[34mdagbag.py:[0m536} INFO[0m - Filling up the DagBag from /home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_MICONSULTA.py[0m
+[[34m2023-12-29T17:13:11.407-0500[0m] {[34mtask_command.py:[0m416} INFO[0m - Running <TaskInstance: actualizacion_MI_CONSULTA.act_tablas scheduled__2023-12-29T19:00:00+00:00 [queued]> on host linux01[0m
+[[34m2023-12-29T17:14:19.442-0500[0m] {[34mscheduler_job_runner.py:[0m685} INFO[0m - Received executor event with state success for task instance TaskInstanceKey(dag_id='actualizacion_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T19:00:00+00:00', try_number=1, map_index=-1)[0m
+[[34m2023-12-29T17:14:19.448-0500[0m] {[34mscheduler_job_runner.py:[0m722} INFO[0m - TaskInstance Finished: dag_id=actualizacion_MI_CONSULTA, task_id=act_tablas, run_id=scheduled__2023-12-29T19:00:00+00:00, map_index=-1, run_start_date=2023-12-29 22:13:11.547294+00:00, run_end_date=2023-12-29 22:14:18.966707+00:00, run_duration=67.419413, state=success, executor_state=success, try_number=1, max_tries=1, job_id=100, pool=default_pool, queue=default, priority_weight=1, operator=PythonOperator, queued_dttm=2023-12-29 22:13:10.151591+00:00, queued_by_job_id=99, pid=1214087[0m
+[[34m2023-12-29T17:16:06.383-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:20:31.780-0500[0m] {[34mdagrun.py:[0m653} INFO[0m - Marking run <DagRun actualizacion_MI_CONSULTA @ 2023-12-29 21:00:00+00:00: scheduled__2023-12-29T21:00:00+00:00, state:running, queued_at: 2023-12-29 22:19:23.388722+00:00. externally triggered: False> successful[0m
+[[34m2023-12-29T17:20:31.781-0500[0m] {[34mdagrun.py:[0m704} INFO[0m - DagRun Finished: dag_id=actualizacion_MI_CONSULTA, execution_date=2023-12-29 21:00:00+00:00, run_id=scheduled__2023-12-29T21:00:00+00:00, run_start_date=2023-12-29 22:19:23.401303+00:00, run_end_date=2023-12-29 22:20:31.780985+00:00, run_duration=68.379682, state=success, external_trigger=False, run_type=scheduled, data_interval_start=2023-12-29 21:00:00+00:00, data_interval_end=2023-12-29 22:00:00+00:00, dag_hash=d26cf32a28afc1daa112fc06959b6bf0[0m
+[[34m2023-12-29T17:20:31.787-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_MI_CONSULTA to 2023-12-29T22:00:00+00:00, run_after=2023-12-29T23:00:00+00:00[0m
+[[34m2023-12-29T17:21:06.434-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:26:06.470-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:31:06.502-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:36:06.537-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:41:06.575-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:46:06.607-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:51:06.659-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:56:06.696-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T17:57:13.663-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_IPRESS_MI_CONSULTA to 2023-12-29T22:00:00+00:00, run_after=2023-12-29T23:00:00+00:00[0m
+[[34m2023-12-29T17:57:13.690-0500[0m] {[34mscheduler_job_runner.py:[0m413} INFO[0m - 1 tasks up for execution:
+	<TaskInstance: actualizacion_IPRESS_MI_CONSULTA.act_tablas scheduled__2023-12-29T21:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T17:57:13.690-0500[0m] {[34mscheduler_job_runner.py:[0m476} INFO[0m - DAG actualizacion_IPRESS_MI_CONSULTA has 0/16 running and queued tasks[0m
+[[34m2023-12-29T17:57:13.690-0500[0m] {[34mscheduler_job_runner.py:[0m592} INFO[0m - Setting the following tasks to queued state:
+	<TaskInstance: actualizacion_IPRESS_MI_CONSULTA.act_tablas scheduled__2023-12-29T21:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T17:57:13.692-0500[0m] {[34mtaskinstance.py:[0m1441} WARNING[0m - cannot record scheduled_duration for task act_tablas because previous state change time has not been saved[0m
+[[34m2023-12-29T17:57:13.692-0500[0m] {[34mscheduler_job_runner.py:[0m635} INFO[0m - Sending TaskInstanceKey(dag_id='actualizacion_IPRESS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T21:00:00+00:00', try_number=1, map_index=-1) to executor with priority 1 and queue default[0m
+[[34m2023-12-29T17:57:13.693-0500[0m] {[34mbase_executor.py:[0m146} INFO[0m - Adding to queue: ['airflow', 'tasks', 'run', 'actualizacion_IPRESS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T21:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_IPRESS_MICONSULTA.py'][0m
+[[34m2023-12-29T17:57:13.693-0500[0m] {[34msequential_executor.py:[0m74} INFO[0m - Executing command: ['airflow', 'tasks', 'run', 'actualizacion_IPRESS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T21:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_IPRESS_MICONSULTA.py'][0m
+[[34m2023-12-29T17:57:14.543-0500[0m] {[34mdagbag.py:[0m536} INFO[0m - Filling up the DagBag from /home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_IPRESS_MICONSULTA.py[0m
+[[34m2023-12-29T17:57:15.038-0500[0m] {[34mtask_command.py:[0m416} INFO[0m - Running <TaskInstance: actualizacion_IPRESS_MI_CONSULTA.act_tablas scheduled__2023-12-29T21:00:00+00:00 [queued]> on host linux01[0m
+[[34m2023-12-29T17:57:18.379-0500[0m] {[34mscheduler_job_runner.py:[0m685} INFO[0m - Received executor event with state success for task instance TaskInstanceKey(dag_id='actualizacion_IPRESS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T21:00:00+00:00', try_number=1, map_index=-1)[0m
+[[34m2023-12-29T17:57:18.383-0500[0m] {[34mscheduler_job_runner.py:[0m722} INFO[0m - TaskInstance Finished: dag_id=actualizacion_IPRESS_MI_CONSULTA, task_id=act_tablas, run_id=scheduled__2023-12-29T21:00:00+00:00, map_index=-1, run_start_date=2023-12-29 22:57:15.148285+00:00, run_end_date=2023-12-29 22:57:17.945789+00:00, run_duration=2.797504, state=success, executor_state=success, try_number=1, max_tries=1, job_id=103, pool=default_pool, queue=default, priority_weight=1, operator=PythonOperator, queued_dttm=2023-12-29 22:57:13.691426+00:00, queued_by_job_id=99, pid=1247555[0m
+[[34m2023-12-29T17:57:42.152-0500[0m] {[34mscheduler_job_runner.py:[0m413} INFO[0m - 1 tasks up for execution:
+	<TaskInstance: actualizacion_REGISTROS_MI_CONSULTA.act_tablas scheduled__2023-12-29T21:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T17:57:42.153-0500[0m] {[34mscheduler_job_runner.py:[0m476} INFO[0m - DAG actualizacion_REGISTROS_MI_CONSULTA has 0/16 running and queued tasks[0m
+[[34m2023-12-29T17:57:42.153-0500[0m] {[34mscheduler_job_runner.py:[0m592} INFO[0m - Setting the following tasks to queued state:
+	<TaskInstance: actualizacion_REGISTROS_MI_CONSULTA.act_tablas scheduled__2023-12-29T21:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T17:57:42.154-0500[0m] {[34mscheduler_job_runner.py:[0m635} INFO[0m - Sending TaskInstanceKey(dag_id='actualizacion_REGISTROS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T21:00:00+00:00', try_number=2, map_index=-1) to executor with priority 1 and queue default[0m
+[[34m2023-12-29T17:57:42.154-0500[0m] {[34mbase_executor.py:[0m146} INFO[0m - Adding to queue: ['airflow', 'tasks', 'run', 'actualizacion_REGISTROS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T21:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py'][0m
+[[34m2023-12-29T17:57:42.155-0500[0m] {[34msequential_executor.py:[0m74} INFO[0m - Executing command: ['airflow', 'tasks', 'run', 'actualizacion_REGISTROS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T21:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py'][0m
+[[34m2023-12-29T17:57:42.933-0500[0m] {[34mdagbag.py:[0m536} INFO[0m - Filling up the DagBag from /home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py[0m
+[[34m2023-12-29T17:57:43.442-0500[0m] {[34mtask_command.py:[0m416} INFO[0m - Running <TaskInstance: actualizacion_REGISTROS_MI_CONSULTA.act_tablas scheduled__2023-12-29T21:00:00+00:00 [queued]> on host linux01[0m
+[[34m2023-12-29T17:58:45.051-0500[0m] {[34mscheduler_job_runner.py:[0m685} INFO[0m - Received executor event with state success for task instance TaskInstanceKey(dag_id='actualizacion_REGISTROS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T21:00:00+00:00', try_number=2, map_index=-1)[0m
+[[34m2023-12-29T17:58:45.058-0500[0m] {[34mscheduler_job_runner.py:[0m722} INFO[0m - TaskInstance Finished: dag_id=actualizacion_REGISTROS_MI_CONSULTA, task_id=act_tablas, run_id=scheduled__2023-12-29T21:00:00+00:00, map_index=-1, run_start_date=2023-12-29 22:57:43.555144+00:00, run_end_date=2023-12-29 22:58:35.125042+00:00, run_duration=51.569898, state=failed, executor_state=success, try_number=2, max_tries=1, job_id=104, pool=default_pool, queue=default, priority_weight=1, operator=PythonOperator, queued_dttm=2023-12-29 22:57:42.153765+00:00, queued_by_job_id=99, pid=1248015[0m
+[[34m2023-12-29T18:00:00.216-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_REGISTROS_MI_CONSULTA to 2023-12-29T23:00:00+00:00, run_after=2023-12-30T00:00:00+00:00[0m
+[[34m2023-12-29T18:00:00.228-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_IPRESS_MI_CONSULTA to 2023-12-29T23:00:00+00:00, run_after=2023-12-30T00:00:00+00:00[0m
+[[34m2023-12-29T18:00:00.264-0500[0m] {[34mscheduler_job_runner.py:[0m413} INFO[0m - 2 tasks up for execution:
+	<TaskInstance: actualizacion_REGISTROS_MI_CONSULTA.act_tablas scheduled__2023-12-29T22:00:00+00:00 [scheduled]>
+	<TaskInstance: actualizacion_IPRESS_MI_CONSULTA.act_tablas scheduled__2023-12-29T22:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T18:00:00.264-0500[0m] {[34mscheduler_job_runner.py:[0m476} INFO[0m - DAG actualizacion_REGISTROS_MI_CONSULTA has 0/16 running and queued tasks[0m
+[[34m2023-12-29T18:00:00.264-0500[0m] {[34mscheduler_job_runner.py:[0m476} INFO[0m - DAG actualizacion_IPRESS_MI_CONSULTA has 0/16 running and queued tasks[0m
+[[34m2023-12-29T18:00:00.264-0500[0m] {[34mscheduler_job_runner.py:[0m592} INFO[0m - Setting the following tasks to queued state:
+	<TaskInstance: actualizacion_REGISTROS_MI_CONSULTA.act_tablas scheduled__2023-12-29T22:00:00+00:00 [scheduled]>
+	<TaskInstance: actualizacion_IPRESS_MI_CONSULTA.act_tablas scheduled__2023-12-29T22:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T18:00:00.267-0500[0m] {[34mtaskinstance.py:[0m1441} WARNING[0m - cannot record scheduled_duration for task act_tablas because previous state change time has not been saved[0m
+[[34m2023-12-29T18:00:00.267-0500[0m] {[34mtaskinstance.py:[0m1441} WARNING[0m - cannot record scheduled_duration for task act_tablas because previous state change time has not been saved[0m
+[[34m2023-12-29T18:00:00.268-0500[0m] {[34mscheduler_job_runner.py:[0m635} INFO[0m - Sending TaskInstanceKey(dag_id='actualizacion_REGISTROS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T22:00:00+00:00', try_number=1, map_index=-1) to executor with priority 1 and queue default[0m
+[[34m2023-12-29T18:00:00.268-0500[0m] {[34mbase_executor.py:[0m146} INFO[0m - Adding to queue: ['airflow', 'tasks', 'run', 'actualizacion_REGISTROS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T22:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py'][0m
+[[34m2023-12-29T18:00:00.268-0500[0m] {[34mscheduler_job_runner.py:[0m635} INFO[0m - Sending TaskInstanceKey(dag_id='actualizacion_IPRESS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T22:00:00+00:00', try_number=1, map_index=-1) to executor with priority 1 and queue default[0m
+[[34m2023-12-29T18:00:00.268-0500[0m] {[34mbase_executor.py:[0m146} INFO[0m - Adding to queue: ['airflow', 'tasks', 'run', 'actualizacion_IPRESS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T22:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_IPRESS_MICONSULTA.py'][0m
+[[34m2023-12-29T18:00:00.269-0500[0m] {[34msequential_executor.py:[0m74} INFO[0m - Executing command: ['airflow', 'tasks', 'run', 'actualizacion_REGISTROS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T22:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py'][0m
+[[34m2023-12-29T18:00:01.236-0500[0m] {[34mdagbag.py:[0m536} INFO[0m - Filling up the DagBag from /home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py[0m
+[[34m2023-12-29T18:00:01.722-0500[0m] {[34mtask_command.py:[0m416} INFO[0m - Running <TaskInstance: actualizacion_REGISTROS_MI_CONSULTA.act_tablas scheduled__2023-12-29T22:00:00+00:00 [queued]> on host linux01[0m
+[[34m2023-12-29T18:01:05.894-0500[0m] {[34msequential_executor.py:[0m74} INFO[0m - Executing command: ['airflow', 'tasks', 'run', 'actualizacion_IPRESS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T22:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_IPRESS_MICONSULTA.py'][0m
+[[34m2023-12-29T18:01:06.786-0500[0m] {[34mdagbag.py:[0m536} INFO[0m - Filling up the DagBag from /home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_IPRESS_MICONSULTA.py[0m
+[[34m2023-12-29T18:01:07.303-0500[0m] {[34mtask_command.py:[0m416} INFO[0m - Running <TaskInstance: actualizacion_IPRESS_MI_CONSULTA.act_tablas scheduled__2023-12-29T22:00:00+00:00 [queued]> on host linux01[0m
+[[34m2023-12-29T18:01:10.691-0500[0m] {[34mscheduler_job_runner.py:[0m685} INFO[0m - Received executor event with state success for task instance TaskInstanceKey(dag_id='actualizacion_REGISTROS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T22:00:00+00:00', try_number=1, map_index=-1)[0m
+[[34m2023-12-29T18:01:10.696-0500[0m] {[34mscheduler_job_runner.py:[0m685} INFO[0m - Received executor event with state success for task instance TaskInstanceKey(dag_id='actualizacion_IPRESS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T22:00:00+00:00', try_number=1, map_index=-1)[0m
+[[34m2023-12-29T18:01:10.707-0500[0m] {[34mscheduler_job_runner.py:[0m722} INFO[0m - TaskInstance Finished: dag_id=actualizacion_IPRESS_MI_CONSULTA, task_id=act_tablas, run_id=scheduled__2023-12-29T22:00:00+00:00, map_index=-1, run_start_date=2023-12-29 23:01:07.428696+00:00, run_end_date=2023-12-29 23:01:10.278450+00:00, run_duration=2.849754, state=success, executor_state=success, try_number=1, max_tries=1, job_id=106, pool=default_pool, queue=default, priority_weight=1, operator=PythonOperator, queued_dttm=2023-12-29 23:00:00.265651+00:00, queued_by_job_id=99, pid=1251143[0m
+[[34m2023-12-29T18:01:10.708-0500[0m] {[34mscheduler_job_runner.py:[0m722} INFO[0m - TaskInstance Finished: dag_id=actualizacion_REGISTROS_MI_CONSULTA, task_id=act_tablas, run_id=scheduled__2023-12-29T22:00:00+00:00, map_index=-1, run_start_date=2023-12-29 23:00:01.845800+00:00, run_end_date=2023-12-29 23:01:05.484133+00:00, run_duration=63.638333, state=success, executor_state=success, try_number=1, max_tries=1, job_id=105, pool=default_pool, queue=default, priority_weight=1, operator=PythonOperator, queued_dttm=2023-12-29 23:00:00.265651+00:00, queued_by_job_id=99, pid=1250156[0m
+[[34m2023-12-29T18:01:10.733-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:01:10.735-0500[0m] {[34mscheduler_job_runner.py:[0m1628} INFO[0m - Marked 1 SchedulerJob instances as failed[0m
+[[34m2023-12-29T18:01:10.753-0500[0m] {[34mdagrun.py:[0m653} INFO[0m - Marking run <DagRun actualizacion_IPRESS_MI_CONSULTA @ 2023-12-29 22:00:00+00:00: scheduled__2023-12-29T22:00:00+00:00, state:running, queued_at: 2023-12-29 23:00:00.218371+00:00. externally triggered: False> successful[0m
+[[34m2023-12-29T18:01:10.753-0500[0m] {[34mdagrun.py:[0m704} INFO[0m - DagRun Finished: dag_id=actualizacion_IPRESS_MI_CONSULTA, execution_date=2023-12-29 22:00:00+00:00, run_id=scheduled__2023-12-29T22:00:00+00:00, run_start_date=2023-12-29 23:00:00.236817+00:00, run_end_date=2023-12-29 23:01:10.753323+00:00, run_duration=70.516506, state=success, external_trigger=False, run_type=scheduled, data_interval_start=2023-12-29 22:00:00+00:00, data_interval_end=2023-12-29 23:00:00+00:00, dag_hash=40bf5e1a9ff041d7715c4ee370525c03[0m
+[[34m2023-12-29T18:01:10.757-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_IPRESS_MI_CONSULTA to 2023-12-29T23:00:00+00:00, run_after=2023-12-30T00:00:00+00:00[0m
+[[34m2023-12-29T18:06:10.777-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:11:10.814-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:16:10.854-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:21:10.890-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:26:10.928-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:31:10.959-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:36:10.997-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:41:11.032-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:46:11.053-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:51:11.084-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T18:56:11.122-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:00:00.026-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_REGISTROS_MI_CONSULTA to 2023-12-30T00:00:00+00:00, run_after=2023-12-30T01:00:00+00:00[0m
+[[34m2023-12-29T19:00:00.034-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_IPRESS_MI_CONSULTA to 2023-12-30T00:00:00+00:00, run_after=2023-12-30T01:00:00+00:00[0m
+[[34m2023-12-29T19:00:00.065-0500[0m] {[34mscheduler_job_runner.py:[0m413} INFO[0m - 2 tasks up for execution:
+	<TaskInstance: actualizacion_REGISTROS_MI_CONSULTA.act_tablas scheduled__2023-12-29T23:00:00+00:00 [scheduled]>
+	<TaskInstance: actualizacion_IPRESS_MI_CONSULTA.act_tablas scheduled__2023-12-29T23:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T19:00:00.065-0500[0m] {[34mscheduler_job_runner.py:[0m476} INFO[0m - DAG actualizacion_REGISTROS_MI_CONSULTA has 0/16 running and queued tasks[0m
+[[34m2023-12-29T19:00:00.066-0500[0m] {[34mscheduler_job_runner.py:[0m476} INFO[0m - DAG actualizacion_IPRESS_MI_CONSULTA has 0/16 running and queued tasks[0m
+[[34m2023-12-29T19:00:00.066-0500[0m] {[34mscheduler_job_runner.py:[0m592} INFO[0m - Setting the following tasks to queued state:
+	<TaskInstance: actualizacion_REGISTROS_MI_CONSULTA.act_tablas scheduled__2023-12-29T23:00:00+00:00 [scheduled]>
+	<TaskInstance: actualizacion_IPRESS_MI_CONSULTA.act_tablas scheduled__2023-12-29T23:00:00+00:00 [scheduled]>[0m
+[[34m2023-12-29T19:00:00.068-0500[0m] {[34mtaskinstance.py:[0m1441} WARNING[0m - cannot record scheduled_duration for task act_tablas because previous state change time has not been saved[0m
+[[34m2023-12-29T19:00:00.068-0500[0m] {[34mtaskinstance.py:[0m1441} WARNING[0m - cannot record scheduled_duration for task act_tablas because previous state change time has not been saved[0m
+[[34m2023-12-29T19:00:00.068-0500[0m] {[34mscheduler_job_runner.py:[0m635} INFO[0m - Sending TaskInstanceKey(dag_id='actualizacion_REGISTROS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T23:00:00+00:00', try_number=1, map_index=-1) to executor with priority 1 and queue default[0m
+[[34m2023-12-29T19:00:00.068-0500[0m] {[34mbase_executor.py:[0m146} INFO[0m - Adding to queue: ['airflow', 'tasks', 'run', 'actualizacion_REGISTROS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T23:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py'][0m
+[[34m2023-12-29T19:00:00.069-0500[0m] {[34mscheduler_job_runner.py:[0m635} INFO[0m - Sending TaskInstanceKey(dag_id='actualizacion_IPRESS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T23:00:00+00:00', try_number=1, map_index=-1) to executor with priority 1 and queue default[0m
+[[34m2023-12-29T19:00:00.069-0500[0m] {[34mbase_executor.py:[0m146} INFO[0m - Adding to queue: ['airflow', 'tasks', 'run', 'actualizacion_IPRESS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T23:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_IPRESS_MICONSULTA.py'][0m
+[[34m2023-12-29T19:00:00.070-0500[0m] {[34msequential_executor.py:[0m74} INFO[0m - Executing command: ['airflow', 'tasks', 'run', 'actualizacion_REGISTROS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T23:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py'][0m
+[[34m2023-12-29T19:00:00.905-0500[0m] {[34mdagbag.py:[0m536} INFO[0m - Filling up the DagBag from /home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py[0m
+[[34m2023-12-29T19:00:01.419-0500[0m] {[34mtask_command.py:[0m416} INFO[0m - Running <TaskInstance: actualizacion_REGISTROS_MI_CONSULTA.act_tablas scheduled__2023-12-29T23:00:00+00:00 [queued]> on host linux01[0m
+Traceback (most recent call last):
+  File "/home/ugadingenieria01/.local/bin/airflow", line 8, in <module>
+    sys.exit(main())
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/__main__.py", line 57, in main
+    args.func(args)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/utils/cli.py", line 114, in wrapper
+    return f(*args, **kwargs)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 431, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 209, in _run_task_by_selected_method
+    return _run_task_by_local_task_job(args, ti)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 271, in _run_task_by_local_task_job
+    ret = run_job(job=job_runner.job, execute_callable=job_runner._execute)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/jobs/job.py", line 289, in run_job
+    return execute_job(job, execute_callable=execute_callable)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/jobs/job.py", line 318, in execute_job
+    ret = execute_callable()
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/jobs/local_task_job_runner.py", line 195, in _execute
+    perform_heartbeat(
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/jobs/job.py", line 350, in perform_heartbeat
+    job.heartbeat(heartbeat_callback=heartbeat_callback, session=session)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/jobs/job.py", line 215, in heartbeat
+    heartbeat_callback(session)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/jobs/local_task_job_runner.py", line 277, in heartbeat_callback
+    raise AirflowException("PID of job runner does not match")
+airflow.exceptions.AirflowException: PID of job runner does not match
+[[34m2023-12-29T19:02:50.474-0500[0m] {[34msequential_executor.py:[0m81} ERROR[0m - Failed to execute task Command '['airflow', 'tasks', 'run', 'actualizacion_REGISTROS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T23:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_REGISTROS_MICONSULTA.py']' returned non-zero exit status 1..[0m
+[[34m2023-12-29T19:02:50.474-0500[0m] {[34msequential_executor.py:[0m74} INFO[0m - Executing command: ['airflow', 'tasks', 'run', 'actualizacion_IPRESS_MI_CONSULTA', 'act_tablas', 'scheduled__2023-12-29T23:00:00+00:00', '--local', '--subdir', '/home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_IPRESS_MICONSULTA.py'][0m
+[[34m2023-12-29T19:02:51.246-0500[0m] {[34mdagbag.py:[0m536} INFO[0m - Filling up the DagBag from /home/ugadingenieria01/.local/lib/python3.10/site-packages/airflow/example_dags/actualización_IPRESS_MICONSULTA.py[0m
+[[34m2023-12-29T19:02:51.721-0500[0m] {[34mtask_command.py:[0m416} INFO[0m - Running <TaskInstance: actualizacion_IPRESS_MI_CONSULTA.act_tablas scheduled__2023-12-29T23:00:00+00:00 [queued]> on host linux01[0m
+[[34m2023-12-29T19:02:55.055-0500[0m] {[34mscheduler_job_runner.py:[0m685} INFO[0m - Received executor event with state failed for task instance TaskInstanceKey(dag_id='actualizacion_REGISTROS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T23:00:00+00:00', try_number=1, map_index=-1)[0m
+[[34m2023-12-29T19:02:55.055-0500[0m] {[34mscheduler_job_runner.py:[0m685} INFO[0m - Received executor event with state success for task instance TaskInstanceKey(dag_id='actualizacion_IPRESS_MI_CONSULTA', task_id='act_tablas', run_id='scheduled__2023-12-29T23:00:00+00:00', try_number=1, map_index=-1)[0m
+[[34m2023-12-29T19:02:55.061-0500[0m] {[34mscheduler_job_runner.py:[0m722} INFO[0m - TaskInstance Finished: dag_id=actualizacion_IPRESS_MI_CONSULTA, task_id=act_tablas, run_id=scheduled__2023-12-29T23:00:00+00:00, map_index=-1, run_start_date=2023-12-30 00:02:51.842653+00:00, run_end_date=2023-12-30 00:02:54.597702+00:00, run_duration=2.755049, state=success, executor_state=success, try_number=1, max_tries=1, job_id=109, pool=default_pool, queue=default, priority_weight=1, operator=PythonOperator, queued_dttm=2023-12-30 00:02:42.708409+00:00, queued_by_job_id=73, pid=1304273[0m
+[[34m2023-12-29T19:02:55.061-0500[0m] {[34mscheduler_job_runner.py:[0m722} INFO[0m - TaskInstance Finished: dag_id=actualizacion_REGISTROS_MI_CONSULTA, task_id=act_tablas, run_id=scheduled__2023-12-29T23:00:00+00:00, map_index=-1, run_start_date=2023-12-30 00:02:44.106474+00:00, run_end_date=2023-12-30 00:02:50.032261+00:00, run_duration=5.925787, state=failed, executor_state=failed, try_number=1, max_tries=1, job_id=108, pool=default_pool, queue=default, priority_weight=1, operator=PythonOperator, queued_dttm=2023-12-30 00:02:42.708409+00:00, queued_by_job_id=73, pid=1304142[0m
+[[34m2023-12-29T19:02:55.086-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:02:55.088-0500[0m] {[34mscheduler_job_runner.py:[0m1628} INFO[0m - Marked 1 SchedulerJob instances as failed[0m
+[[34m2023-12-29T19:02:55.104-0500[0m] {[34mdagrun.py:[0m653} INFO[0m - Marking run <DagRun actualizacion_IPRESS_MI_CONSULTA @ 2023-12-29 23:00:00+00:00: scheduled__2023-12-29T23:00:00+00:00, state:running, queued_at: 2023-12-30 00:00:00.027757+00:00. externally triggered: False> successful[0m
+[[34m2023-12-29T19:02:55.104-0500[0m] {[34mdagrun.py:[0m704} INFO[0m - DagRun Finished: dag_id=actualizacion_IPRESS_MI_CONSULTA, execution_date=2023-12-29 23:00:00+00:00, run_id=scheduled__2023-12-29T23:00:00+00:00, run_start_date=2023-12-30 00:00:00.040392+00:00, run_end_date=2023-12-30 00:02:55.104757+00:00, run_duration=175.064365, state=success, external_trigger=False, run_type=scheduled, data_interval_start=2023-12-29 23:00:00+00:00, data_interval_end=2023-12-30 00:00:00+00:00, dag_hash=40bf5e1a9ff041d7715c4ee370525c03[0m
+[[34m2023-12-29T19:02:55.109-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_IPRESS_MI_CONSULTA to 2023-12-30T00:00:00+00:00, run_after=2023-12-30T01:00:00+00:00[0m
+[[34m2023-12-29T19:03:04.227-0500[0m] {[34mdagrun.py:[0m632} ERROR[0m - Marking run <DagRun actualizacion_REGISTROS_MI_CONSULTA @ 2023-12-29 23:00:00+00:00: scheduled__2023-12-29T23:00:00+00:00, state:running, queued_at: 2023-12-30 00:00:00.019661+00:00. externally triggered: False> failed[0m
+[[34m2023-12-29T19:03:04.227-0500[0m] {[34mdagrun.py:[0m704} INFO[0m - DagRun Finished: dag_id=actualizacion_REGISTROS_MI_CONSULTA, execution_date=2023-12-29 23:00:00+00:00, run_id=scheduled__2023-12-29T23:00:00+00:00, run_start_date=2023-12-30 00:00:00.039862+00:00, run_end_date=2023-12-30 00:03:04.227625+00:00, run_duration=184.187763, state=failed, external_trigger=False, run_type=scheduled, data_interval_start=2023-12-29 23:00:00+00:00, data_interval_end=2023-12-30 00:00:00+00:00, dag_hash=660d260ac9806101670dcd0e193351af[0m
+[[34m2023-12-29T19:03:04.232-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_REGISTROS_MI_CONSULTA to 2023-12-30T00:00:00+00:00, run_after=2023-12-30T01:00:00+00:00[0m
+[[34m2023-12-29T19:07:55.116-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:12:55.156-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:17:55.189-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:22:55.229-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:27:55.265-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:32:55.303-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:37:55.341-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:42:55.377-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:47:55.416-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:52:55.457-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T19:57:55.491-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2023-12-29T20:02:10.205-0500[0m] {[34mdagrun.py:[0m653} INFO[0m - Marking run <DagRun actualizacion_REGISTROS_MI_CONSULTA @ 2023-12-30 00:00:00+00:00: scheduled__2023-12-30T00:00:00+00:00, state:running, queued_at: 2023-12-30 01:00:00.073367+00:00. externally triggered: False> successful[0m
+[[34m2023-12-29T20:02:10.206-0500[0m] {[34mdagrun.py:[0m704} INFO[0m - DagRun Finished: dag_id=actualizacion_REGISTROS_MI_CONSULTA, execution_date=2023-12-30 00:00:00+00:00, run_id=scheduled__2023-12-30T00:00:00+00:00, run_start_date=2023-12-30 01:00:00.093842+00:00, run_end_date=2023-12-30 01:02:10.206267+00:00, run_duration=130.112425, state=success, external_trigger=False, run_type=scheduled, data_interval_start=2023-12-30 00:00:00+00:00, data_interval_end=2023-12-30 01:00:00+00:00, dag_hash=660d260ac9806101670dcd0e193351af[0m
+[[34m2023-12-29T20:02:10.210-0500[0m] {[34mdag.py:[0m3722} INFO[0m - Setting next_dagrun for actualizacion_REGISTROS_MI_CONSULTA to 2023-12-30T01:00:00+00:00, run_after=2023-12-30T02:00:00+00:00[0m
+[[34m2023-12-29T20:02:55.534-0500[0m] {[34mscheduler_job_runner.py:[0m1605} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m

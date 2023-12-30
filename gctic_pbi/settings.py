@@ -127,9 +127,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sig_gctic',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '192.168.18.195',
+        'USER': 'postgres',
+        'PASSWORD': 'AKindOfMagic',
+        'HOST': '10.0.1.229',
         'PORT': '5432',
     }
 }

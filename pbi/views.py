@@ -54,6 +54,26 @@ class SolicitudRetrieveUpdateDeleteView(generics.ListCreateAPIView):
     serializer_class = SolicitudSerializer
     permission_classes = [permissions.AllowAny]  # Permite acceso sin autenticación
 
+class CambiarContrasenaView(generics.UpdateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def update(self, request, *args, **kwargs):
+        user = self.get_object()
+        nueva_contrasena = request.data.get('nueva_contrasena', '')
+        confirmar_contrasena = request.data.get('confirmar_contrasena', '')
+
+        # Realizar la lógica para cambiar la contraseña según tus necesidades
+        if nueva_contrasena and nueva_contrasena == confirmar_contrasena:
+            user.set_password(nueva_contrasena)
+            user.cambio_primera_contrasena = True
+            user.save()
+            serializer = CustomUserSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({"detail": "Las contraseñas no coinciden"}, status=status.HTTP_400_BAD_REQUEST)
+
 class GrupoListCreateView(generics.ListCreateAPIView):
     serializer_class = GrupoSerializer
     permission_classes = [permissions.IsAuthenticated]  # Requiere autenticación
@@ -110,12 +130,16 @@ class AsignarPermisoGrupoView(generics.CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
+        usuario_id = serializer.validated_data['usuario_id']
+        grupo_id = serializer.validated_data['grupo_id']
+
+        # Verificar si el permiso de grupo ya existe para el usuario y grupo especificados
+        if PermisoGrupo.objects.filter(usuario_id=usuario_id, grupo_id=grupo_id).exists():
+            return Response({"detail": "El permiso de grupo ya existe para este usuario y grupo"}, status=status.HTTP_400_BAD_REQUEST)
+
         # Verificar si el usuario autenticado es un superusuario
         if not request.user.is_superuser:
             return Response({"detail": "Solo los superusuarios pueden asignar permisos a otros usuarios"}, status=status.HTTP_403_FORBIDDEN)
-
-        usuario_id = serializer.validated_data['usuario_id']
-        grupo_id = serializer.validated_data['grupo_id']
 
         # Crear el permiso de grupo para el usuario especificado
         PermisoGrupo.objects.create(usuario_id=usuario_id, grupo_id=grupo_id)
@@ -130,12 +154,16 @@ class AsignarPermisoReporteView(generics.CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
+        usuario_id = serializer.validated_data['usuario_id']
+        reporte_id = serializer.validated_data['reporte_id']
+
+        # Verificar si el permiso de reporte ya existe para el usuario y reporte especificados
+        if PermisoReporte.objects.filter(usuario_id=usuario_id, reporte_id=reporte_id).exists():
+            return Response({"detail": "El permiso de reporte ya existe para este usuario y reporte"}, status=status.HTTP_400_BAD_REQUEST)
+
         # Verificar si el usuario autenticado es un superusuario
         if not request.user.is_superuser:
             return Response({"detail": "Solo los superusuarios pueden asignar permisos a otros usuarios"}, status=status.HTTP_403_FORBIDDEN)
-
-        usuario_id = serializer.validated_data['usuario_id']
-        reporte_id = serializer.validated_data['reporte_id']
 
         # Crear el permiso de reporte para el usuario especificado
         PermisoReporte.objects.create(usuario_id=usuario_id, reporte_id=reporte_id)
@@ -206,11 +234,15 @@ class AsignarTodosLosPermisosView(generics.CreateAPIView):
 
         # Asignar permisos de grupo al usuario
         for grupo in todos_los_grupos:
-            PermisoGrupo.objects.create(usuario=usuario, grupo=grupo)
+            # Verificar si el permiso ya existe
+            if not PermisoGrupo.objects.filter(usuario=usuario, grupo=grupo).exists():
+                PermisoGrupo.objects.create(usuario=usuario, grupo=grupo)
 
         # Asignar permisos de reporte al usuario
         for reporte in todos_los_reportes:
-            PermisoReporte.objects.create(usuario=usuario, reporte=reporte)
+            # Verificar si el permiso ya existe
+            if not PermisoReporte.objects.filter(usuario=usuario, reporte=reporte).exists():
+                PermisoReporte.objects.create(usuario=usuario, reporte=reporte)
 
         return Response({"detail": "Todos los permisos asignados correctamente"}, status=status.HTTP_201_CREATED)
     

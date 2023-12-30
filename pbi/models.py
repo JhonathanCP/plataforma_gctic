@@ -14,6 +14,7 @@ class CustomUser(AbstractUser):
     telefono_contacto = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(9999999999)])
     sede = models.CharField(max_length=100, null=True)
     area = models.CharField(max_length=100, null=True)    
+    cambio_primera_contrasena = models.BooleanField(default=False)
     
     # Otros campos personalizados que puedas necesitar
     def __str__(self):
